@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:4000/api';
+const API_URL = 'http://localhost:5000/api';
 
 const getHeaders = () => {
     const headers = {
@@ -18,6 +18,7 @@ export const api = {
         const res = await fetch(`${API_URL}${endpoint}`, {
             method: 'GET',
             headers: getHeaders(),
+            credentials: 'include',
         });
         if (!res.ok) {
             const error = await res.json().catch(() => ({}));
@@ -31,6 +32,7 @@ export const api = {
             method: 'POST',
             headers: getHeaders(),
             body: JSON.stringify(data),
+            credentials: 'include',
         });
         if (!res.ok) {
             const error = await res.json().catch(() => ({}));
@@ -44,6 +46,7 @@ export const api = {
             method: 'PUT',
             headers: getHeaders(),
             body: JSON.stringify(data),
+            credentials: 'include',
         });
         if (!res.ok) {
             const error = await res.json().catch(() => ({}));
@@ -56,6 +59,7 @@ export const api = {
         const res = await fetch(`${API_URL}${endpoint}`, {
             method: 'DELETE',
             headers: getHeaders(),
+            credentials: 'include',
         });
         if (!res.ok) {
             const error = await res.json().catch(() => ({}));

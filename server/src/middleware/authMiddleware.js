@@ -3,11 +3,12 @@ import jwt from 'jsonwebtoken';
 const authMiddleware = (req, res, next) => {
     try {
         const authHeader = req.headers.authorization;
-        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        const token = req.cookies?.token || (authHeader && authHeader.startsWith('Bearer ') ? authHeader.split(' ')[1] : null);
+
+        if (!token) {
             return res.status(401).json({ message: "Authentication token missing or invalid" });
         }
         
-        const token = authHeader.split(' ')[1];
         const decoded = jwt.verify(token, process.env.JWT_SECRET || 'supersecretkey123');
         req.admin = decoded;
         next();

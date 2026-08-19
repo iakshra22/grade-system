@@ -2,8 +2,8 @@ import "./globals.css";
 import { ToastProvider } from "../components/Toast";
 
 export const metadata = {
-  title: "AetherGrade | Premium Teacher Portal",
-  description: "A high-fidelity academic grading and dashboard portal designed exclusively for educators.",
+  title: "BFCET (BFGI) | Grading Portal",
+  description: "Academic grading and dashboard portal for Baba Farid College of Engineering and Technology.",
 };
 
 export default function RootLayout({ children }) {
